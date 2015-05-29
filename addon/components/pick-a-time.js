@@ -7,8 +7,25 @@ export default Ember.Component.extend({
   placeholder: "Select a time",
   options: {},
   value: null,
+  date: null,
 
   connectPickatime: Ember.on('didInsertElement', function() {
-    this.set('picker', this.$('input').pickatime(this.get('options')));
+    this.$('input').pickatime(this.get('options'));
+    this.set('picker', this.$('input').pickatime('picker'));
+  }),
+
+  updateDate: Ember.observer('value', function() {
+    var date = this.get('date');
+
+    if (!date) {
+      date = new Date();
+      this.set('date', date);
+    }
+
+    var dateItem = this.get('picker').get('select');
+    if (!dateItem) {
+      return;
+    }
+    date.setHours(dateItem.hour, dateItem.mins, 0, 0);
   })
 });
