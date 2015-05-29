@@ -17,9 +17,11 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 ## Usage
 
 ### Date Picker
-`{{pick-a-date value=date placeholder="Pick a date" options=extraPickadateOptions}}`
+`{{pick-a-date date=date placeholder="Pick a date" options=extraPickadateOptions}}`
 
 ### Time Picker
-`{{pick-a-time value=time placeholder="Pick a time" options=extraPickadateOptions}}`
+`{{pick-a-time date=date placeholder="Pick a time" options=extraPickadateOptions}}`
 
-All parameters are optional
+All parameters are optional.
+
+You can pass the same date object to both pickers.
