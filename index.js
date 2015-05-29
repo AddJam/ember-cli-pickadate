@@ -14,4 +14,3 @@ module.exports = {
     app.import('bower_components/pickadate/lib/themes/default.time.css');
   }
 };
-};
