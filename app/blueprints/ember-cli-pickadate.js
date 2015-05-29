@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-pickadate/blueprints/ember-cli-pickadate';
