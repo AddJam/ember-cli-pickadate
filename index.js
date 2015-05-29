@@ -12,5 +12,9 @@ module.exports = {
     app.import(app.bowerDirectory + '/pickadate/lib/themes/default.css');
     app.import(app.bowerDirectory + '/pickadate/lib/themes/default.date.css');
     app.import(app.bowerDirectory + '/pickadate/lib/themes/default.time.css');
+  },
+
+  afterInstall: function() {
+    return this.addBowerPackageToProject('pickadate');
   }
 };
