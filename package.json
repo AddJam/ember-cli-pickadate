@@ -1,7 +1,7 @@
 {
   "name": "ember-cli-pickadate",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Ember components wrapping date and time pickers from Pickadate.js",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -15,7 +15,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Add Jam",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.2",
@@ -35,7 +35,10 @@
     "ember-try": "0.0.4"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "date",
+    "time",
+    "pickadate"
   ],
   "dependencies": {
     "ember-cli-htmlbars": "0.7.6",
