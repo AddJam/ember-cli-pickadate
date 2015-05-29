@@ -1,25 +1,23 @@
-# Ember-cli-pickadate
+# ember-cli-pickadate
 
-This README outlines the details of collaborating on this Ember addon.
+Components wrapping the date and time pickers of the [pickadate](http://amsul.ca/pickadate.js) library.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+ember-cli >= 0.2.5
 
-## Running
+`ember install ember-cli-pickadate`
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+ember-cli < 0.2.5
 
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
+`ember install:addon ember-cli-pickadate`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+## Usage
+
+### Date Picker
+{{pick-a-date value=date placeholder="Pick a date" options=extraPickadateOptions}}
+
+### Time Picker
+{{pick-a-time value=time placeholder="Pick a time" options=extraPickadateOptions}}

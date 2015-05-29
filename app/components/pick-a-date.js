@@ -1,0 +1,1 @@
+export { default } from 'ember-cli-pickadate/components/pick-a-date';
