@@ -10,9 +10,16 @@ export default Ember.Component.extend({
   date: null,
 
   connectPickatime: Ember.on('didInsertElement', function() {
-    this.$('input').pickatime(this.get('options'));
+    var options = this.get('options');
+    options.onClose = options.onClose || this.onClose;
+    this.$('input').pickatime(options);
     this.set('picker', this.$('input').pickatime('picker'));
   }),
+
+  onClose: function(){
+    // Prevent pickadate from re-opening on focus
+    Ember.$(document.activeElement).blur();
+  },
 
   updateDate: Ember.observer('value', function() {
     var date = this.get('date');
