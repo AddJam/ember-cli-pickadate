@@ -1,3 +1,6 @@
+[![npm version](https://badge.fury.io/js/ember-cli-pickadate.svg)](http://badge.fury.io/js/ember-cli-pickadate)
+[![Travis CI](https://travis-ci.org/AddJam/ember-cli-pickadate.svg)](https://travis-ci.org/AddJam/ember-cli-pickadate)
+
 # ember-cli-pickadate
 
 Components wrapping the date and time pickers of the [pickadate](http://amsul.ca/pickadate.js) library.
