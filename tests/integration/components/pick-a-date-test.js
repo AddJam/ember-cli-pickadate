@@ -26,7 +26,7 @@ test('clicking input opens picker', function(assert) {
   this.render(hbs`{{pick-a-date}}`);
   let $input = this.$('.ember-pick-a-date input');
 
-  assert.ok(!$input.hasClass('picker__input--active'));
+  assert.notOk($input.hasClass('picker__input--active'));
 
   $input.click();
   assert.ok($input.hasClass('picker__input--active'));
