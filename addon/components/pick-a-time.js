@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   options: {},
   value: null,
   date: null,
+  classNames: ['ember-pick-a-time'],
 
   connectPickatime: Ember.on('didInsertElement', function() {
     var options = this.get('options');
