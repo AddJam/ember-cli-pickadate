@@ -23,17 +23,26 @@ export default Ember.Component.extend({
   },
 
   updateDate: Ember.observer('value', function() {
-    var date = this.get('date');
+    var date = this.get('date'),
+        value = this.get('value'),
+        picker = this.get('picker'),
+        format = this.get('options.format') || 'd mmmm, yyyy';
+
+    if (value !== picker.get('select', format)) {
+      picker.set('select', value, { format: format } );
+      return;
+    }
 
     if (!date) {
       date = new Date();
       this.set('date', date);
     }
 
-    var dateItem = this.get('picker').get('select');
+    var dateItem = picker.get('select');
     if (!dateItem) {
       return;
     }
+
     date.setYear(dateItem.year);
     date.setMonth(dateItem.month);
     date.setDate(dateItem.date);
