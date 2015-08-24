@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-pickadate",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Ember components wrapping date and time pickers from Pickadate.js",
   "directories": {
     "doc": "doc",
