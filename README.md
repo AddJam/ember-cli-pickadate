@@ -29,6 +29,21 @@ All parameters are optional.
 
 You can pass the same date object to both pickers.
 
+### Build Options
+You can specify options to the add-on using the "ember-cli-pickadate" config property in your ember-cli-build.js (or in Brocfile.js if you are using an Ember CLI version older than 1.13):
+
+```
+var app = new EmberApp({
+  "ember-cli-pickadate": { [options] }
+});
+```
+
+Options:
+
+* `theme`: specify a theme to use (default: 'default')
+
+
+
 ## License
 
 The MIT License (MIT)
