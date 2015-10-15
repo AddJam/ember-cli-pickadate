@@ -43,7 +43,7 @@ export default Ember.Component.extend({
       return;
     }
 
-    let newDate = new Date(date)
+    let newDate = new Date(date);
     newDate.setYear(dateItem.year);
     newDate.setMonth(dateItem.month);
     newDate.setDate(dateItem.date);
