@@ -34,6 +34,9 @@ export default Ember.Component.extend({
     if (!dateItem) {
       return;
     }
-    date.setHours(dateItem.hour, dateItem.mins, 0, 0);
+
+    let newDate = new Date(date);
+    newDate.setHours(dateItem.hour, dateItem.mins, 0, 0);
+    this.set('date', newDate);
   })
 });
