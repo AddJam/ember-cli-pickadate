@@ -20,11 +20,14 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 ## Usage
 
 ### Date Picker
-`{{pick-a-date date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a date" options=extraPickadateOptions}}`
+```html
+{{pick-a-date date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a date" options=extraPickadateOptions}}
+```
 
 or the following syntax if you have angle bracket components.
-
-`<pick-a-date date={{date}} on-selected=(action (mut date)) placeholder="Pick a date" options={{extraPickadateOptions}}>`
+```html
+<pick-a-date date={{date}} on-selected=(action (mut date)) placeholder="Pick a date" options={{extraPickadateOptions}}>
+```
 
 #### Parameters
  * disabled - (string) Disable the datepicker
@@ -34,11 +37,14 @@ or the following syntax if you have angle bracket components.
  * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
 
 ### Time Picker
-`{{pick-a-time date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a time" options=extraPickadateOptions}}`
+```html
+{{pick-a-time date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a time" options=extraPickadateOptions}}
+```
 
 or the following syntax if you have angle bracket components.
-
-`<pick-a-time date={{date}} on-selected=(action (mut date)) placeholder="Pick a time" options={{extraPickadateOptions}}>`
+```html
+<pick-a-time date={{date}} on-selected=(action (mut date)) placeholder="Pick a time" options={{extraPickadateOptions}}>
+```
 
 #### Parameters
  * disabled - (string) Disable the timepicker
@@ -48,6 +54,8 @@ or the following syntax if you have angle bracket components.
  * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
  * nulls-date - (boolean) If true, will set the date to null when the clear button is pressed.
                           If false, will set the time part to 0 only when the clear button is pressed, the date part is unaffected.
+
+----------------------
 
 All parameters are optional.
 
