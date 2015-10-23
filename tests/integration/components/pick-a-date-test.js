@@ -36,7 +36,7 @@ test('date is updated', function(assert) {
   let date = new Date();
   let initialDate = new Date(date);
   this.set('date', date);
-  this.render(hbs`{{pick-a-date date=date on-selected=(action (mut date))}}`);
+  this.render(hbs`{{pick-a-date date=(readonly date) on-selected=(action (mut date))}}`);
 
   assert.ok(this.get('date') === date, "Date set");
 
@@ -66,7 +66,7 @@ test('date picker is updated on value change', function(assert) {
 
   this.render(hbs`
     {{pick-a-date
-      date=date
+      date=(readonly date)
       options=options
       on-selected=(action (mut date))
     }}
@@ -87,3 +87,22 @@ test('date picker is updated on value change', function(assert) {
     assert.notEqual(this.get('date'), date, 'Does not set date when value is set');
   });
 });
+
+test('can toggle disabled property', function(assert) {
+  this.set('disabled', true);
+  this.set('date', undefined);
+
+  this.render(hbs`
+    {{pick-a-date
+      date=(readonly date)
+      disabled=(readonly disabled)
+    }}
+  `);
+
+  let $input = this.$('input');
+  assert.equal($input.prop('disabled'), true);
+
+  this.set('disabled', false);
+  assert.equal($input.prop('disabled'), false);
+});
+

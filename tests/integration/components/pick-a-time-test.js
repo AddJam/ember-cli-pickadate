@@ -36,7 +36,7 @@ test('date is updated', function(assert) {
   let date = new Date();
   let initialDate = new Date(date);
   this.set('date', date);
-  this.render(hbs`{{pick-a-time date=date on-selected=(action (mut date))}}`);
+  this.render(hbs`{{pick-a-time date=(readonly date) on-selected=(action (mut date))}}`);
 
   assert.ok(this.get('date') === date, "Date set");
 
@@ -52,4 +52,22 @@ test('date is updated', function(assert) {
     assert.ok(this.get('date').getMonth() === initialDate.getMonth(), "Month didn't change");
     assert.ok(this.get('date').getDate() === initialDate.getDate(), "Day didn't change");
   });
+});
+
+test('can toggle disabled property', function(assert) {
+  this.set('disabled', true);
+  this.set('date', undefined);
+
+  this.render(hbs`
+    {{pick-a-time
+      date=(readonly date)
+      disabled=(readonly disabled)
+    }}
+  `);
+
+  let $input = this.$('input');
+  assert.equal($input.prop('disabled'), true);
+
+  this.set('disabled', false);
+  assert.equal($input.prop('disabled'), false);
 });
