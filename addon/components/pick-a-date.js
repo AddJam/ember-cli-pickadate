@@ -6,7 +6,7 @@ const DEFAULT_DATE_FORMAT = 'd mmmm, yyyy';
 /**
  * @public
  *
- * @param disabled - (string) disable the datepicker
+ * @param disabled - (boolean) disable the datepicker
  * @param placeholder - (string) the text to display in the input when nothing is selected
  * @param options - (object) options available via the pick-a-date API (http://amsul.ca/pickadate.js/)
  * @param date - (Date) the date to display

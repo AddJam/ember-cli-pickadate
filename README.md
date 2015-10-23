@@ -30,7 +30,7 @@ or the following syntax if you have angle bracket components.
 ```
 
 #### Parameters
- * disabled - (string) Disable the datepicker
+ * disabled - (boolean) Disable the datepicker
  * placeholder - (string) The text to display in the input when nothing is selected
  * options - (object) Options available via the pick-a-date API
  * date - (Date) The date to display
@@ -47,7 +47,7 @@ or the following syntax if you have angle bracket components.
 ```
 
 #### Parameters
- * disabled - (string) Disable the timepicker
+ * disabled - (boolean) Disable the timepicker
  * placeholder - (string) The text to display in the input when nothing is selected
  * options - (object) Options available via the pick-a-date API
  * date - (Date) The date to display (of which the time part will be displayed to the user)

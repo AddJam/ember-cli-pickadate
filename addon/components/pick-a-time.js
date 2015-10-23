@@ -6,7 +6,7 @@ const DEFAULT_TIME_FORMAT = 'hh-i';
 /**
  * @public
  *
- * @param disabled - (string) Disable the timepicker
+ * @param disabled - (boolean) Disable the timepicker
  * @param placeholder - (string) The text to display in the input when nothing is selected
  * @param options - (object) Options available via the pick-a-date API
  * @param date - (Date) The inital date to display
