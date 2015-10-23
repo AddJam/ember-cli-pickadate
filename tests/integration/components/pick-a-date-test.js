@@ -7,24 +7,23 @@ moduleForComponent('pick-a-date', 'Integration | Component | pick a date', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   this.render(hbs`{{pick-a-date}}`);
 
-  assert.equal(this.$('.ember-pick-a-date').length, 1);
-  assert.equal(this.$('.ember-pick-a-date input').length, 1);
+  assert.equal(this.$().length, 1);
 });
 
 test('placeholder is set', function(assert) {
   assert.expect(1);
   this.render(hbs`{{pick-a-date placeholder='pew'}}`);
 
-  assert.equal(this.$('.ember-pick-a-date input').attr('placeholder'), 'pew');
+  assert.equal(this.$('input').attr('placeholder'), 'pew');
 });
 
 test('clicking input opens picker', function(assert) {
   assert.expect(2);
   this.render(hbs`{{pick-a-date}}`);
-  let $input = this.$('.ember-pick-a-date input');
+  let $input = this.$('input');
 
   assert.notOk($input.hasClass('picker__input--active'));
 
@@ -37,14 +36,14 @@ test('date is updated', function(assert) {
   let date = new Date();
   let initialDate = new Date(date);
   this.set('date', date);
-  this.render(hbs`{{pick-a-date date=date}}`);
+  this.render(hbs`{{pick-a-date date=date on-selected=(action (mut date))}}`);
 
   assert.ok(this.get('date') === date, "Date set");
 
-  this.$('.ember-pick-a-date input').click();
+  this.$().click();
 
   Ember.run.next(() => {
-    this.$('.ember-pick-a-date .picker__day--infocus').click();
+    this.$('.picker__day--infocus').click();
 
     assert.ok(this.get('date') !== initialDate, "Date changed");
 
@@ -63,26 +62,25 @@ test('date picker is updated on value change', function(assert) {
   let $input;
 
   this.set('options', options);
-  this.set('value', undefined);
   this.set('date', undefined);
 
   this.render(hbs`
     {{pick-a-date
       date=date
-      value=value
       options=options
+      on-selected=(action (mut date))
     }}
   `);
 
-  $input = this.$('.ember-pick-a-date input');
+  $input = this.$('input');
   assert.equal($input.val(), "", "Expected input value to be empty");
 
   this.set('date', new Date(date.getTime() + DAY_IN_MILLISECONDS));
-  this.set('value', formattedDate);
+  $input.val(formattedDate);
 
   Ember.run.next(() => {
     assert.equal($input.val(), formattedDate, "Expected input value to be set to date");
-    assert.equal($input.pickadate('picker').get('select', options.format), formattedDate, "Expected pick a date to have date selected");
+    assert.equal($input.pickadate('picker').get('value'), formattedDate, "Expected pick a date to have date selected");
     //This ensures we don't get into weird cyclical conditions
     //If the user wants to set the value of the pick a date from an external source
     //then it is assumed they are setting it from the date object they passed into date=

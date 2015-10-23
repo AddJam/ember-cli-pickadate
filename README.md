@@ -20,10 +20,34 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 ## Usage
 
 ### Date Picker
-`{{pick-a-date date=date placeholder="Pick a date" options=extraPickadateOptions}}`
+`{{pick-a-date date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a date" options=extraPickadateOptions}}`
+
+or the following syntax if you have angle bracket components.
+
+`<pick-a-date date={{date}} on-selected=(action (mut date)) placeholder="Pick a date" options={{extraPickadateOptions}}>`
+
+#### Parameters
+ * disabled - (string) Disable the datepicker
+ * placeholder - (string) The text to display in the input when nothing is selected
+ * options - (object) Options available via the pick-a-date API
+ * date - (Date) The date to display
+ * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
 
 ### Time Picker
-`{{pick-a-time date=date placeholder="Pick a time" options=extraPickadateOptions}}`
+`{{pick-a-time date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a time" options=extraPickadateOptions}}`
+
+or the following syntax if you have angle bracket components.
+
+`<pick-a-time date={{date}} on-selected=(action (mut date)) placeholder="Pick a time" options={{extraPickadateOptions}}>`
+
+#### Parameters
+ * disabled - (string) Disable the timepicker
+ * placeholder - (string) The text to display in the input when nothing is selected
+ * options - (object) Options available via the pick-a-date API
+ * date - (Date) The date to display (of which the time part will be displayed to the user)
+ * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
+ * nulls-date - (boolean) If true, will set the date to null when the clear button is pressed.
+                          If false, will set the time part to 0 only when the clear button is pressed, the date part is unaffected.
 
 All parameters are optional.
 
