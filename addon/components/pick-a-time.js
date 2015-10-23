@@ -69,7 +69,7 @@ export default Component.extend({
     const dateItem = this.get('picker').get('select');
     let newDate = new Date(date);
     if (isNone(dateItem)) {
-      if(this.attrs['nulls-date']) {
+      if(this.attrs['nulls-date'] === true) {
         newDate = null;
       } else {
         newDate.setHours(0, 0, 0, 0);
