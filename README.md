@@ -20,8 +20,9 @@ For more information on using ember-cli, visit [http://www.ember-cli.com/](http:
 ## Usage
 
 ### Date Picker
+* Note that if using they curly HTMLBars syntax you need pass all attributes as `attribute=(readonly VALUE)`, this is the default for angle bracket components.
 ```html
-{{pick-a-date date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a date" options=extraPickadateOptions}}
+{{pick-a-date date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
 ```
 
 or the following syntax if you have angle bracket components.
@@ -37,8 +38,10 @@ or the following syntax if you have angle bracket components.
  * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
 
 ### Time Picker
+
+* Note that if using they curly HTMLBars syntax you need pass all attributes as `attribute=(readonly VALUE)`, this is the default for angle bracket components.
 ```html
-{{pick-a-time date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a time" options=extraPickadateOptions}}
+{{pick-a-time date=(readonly date) on-selected=(action (mut date)) placeholder="Pick a time" options=(readonly extraPickadateOptions)}}
 ```
 
 or the following syntax if you have angle bracket components.
