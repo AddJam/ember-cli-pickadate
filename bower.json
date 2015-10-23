@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "pickadate": "AddJam/pickadate.js#cd23958028a62035bd684b9368eca4444805563d"
+  },
+  "resolutions": {
+    "ember": "2.1.0"
   }
 }
