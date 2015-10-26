@@ -7,24 +7,23 @@ moduleForComponent('pick-a-time', 'Integration | Component | pick a time', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
   this.render(hbs`{{pick-a-time}}`);
 
-  assert.equal(this.$('.ember-pick-a-time').length, 1);
-  assert.equal(this.$('.ember-pick-a-time input').length, 1);
+  assert.equal(this.$().length, 1);
 });
 
 test('placeholder is set', function(assert) {
   assert.expect(1);
   this.render(hbs`{{pick-a-time placeholder='pew'}}`);
 
-  assert.equal(this.$('.ember-pick-a-time input').attr('placeholder'), 'pew');
+  assert.equal(this.$('input').prop('placeholder'), 'pew');
 });
 
 test('clicking input opens picker', function(assert) {
   assert.expect(2);
   this.render(hbs`{{pick-a-time}}`);
-  let $input = this.$('.ember-pick-a-time input');
+  let $input = this.$('input');
 
   assert.notOk($input.hasClass('picker__input--active'));
 
@@ -37,14 +36,14 @@ test('date is updated', function(assert) {
   let date = new Date();
   let initialDate = new Date(date);
   this.set('date', date);
-  this.render(hbs`{{pick-a-time date=date}}`);
+  this.render(hbs`{{pick-a-time date=(readonly date) on-selected=(action (mut date))}}`);
 
   assert.ok(this.get('date') === date, "Date set");
 
-  this.$('.ember-pick-a-time input').click();
+  this.$().click();
 
   Ember.run.next(() => {
-    this.$('.ember-pick-a-time .picker__list-item').click();
+    this.$('.picker__list-item').click();
 
     assert.ok(this.get('date') !== initialDate, "Date changed");
 
@@ -53,4 +52,22 @@ test('date is updated', function(assert) {
     assert.ok(this.get('date').getMonth() === initialDate.getMonth(), "Month didn't change");
     assert.ok(this.get('date').getDate() === initialDate.getDate(), "Day didn't change");
   });
+});
+
+test('can toggle disabled property', function(assert) {
+  this.set('disabled', true);
+  this.set('date', undefined);
+
+  this.render(hbs`
+    {{pick-a-time
+      date=(readonly date)
+      disabled=(readonly disabled)
+    }}
+  `);
+
+  let $input = this.$('input');
+  assert.equal($input.prop('disabled'), true);
+
+  this.set('disabled', false);
+  assert.equal($input.prop('disabled'), false);
 });

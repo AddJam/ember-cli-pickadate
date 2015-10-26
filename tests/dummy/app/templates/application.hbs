@@ -1,7 +1,17 @@
 <h1>Pickadate for Ember</h1>
 
 <h2>Date picker</h2>
-{{pick-a-date date=date}}
+{{input type="checkbox" checked=dateDisabled}} Disable?<br>
+Placeholder {{input value=datePlaceholder}}<br>
+<br>
+<h3>Empty Date</h3>
+{{pick-a-date date=date on-selected=(action (mut date)) disabled=dateDisabled placeholder=datePlaceholder}}
+<h3>Todays Date</h3>
+{{pick-a-date date=date2 on-selected=(action (mut date2)) disabled=dateDisabled placeholder=datePlaceholder}}
 
 <h2>Time picker</h2>
-{{pick-a-time date=date}}
+{{input type="checkbox" checked=timeDisabled}} Disable?<br>
+Placeholder {{input value=timePlaceholder}}<br>
+{{input type="checkbox" checked=nullsDate}} Clearing time nulls out date?<br>
+<br>
+{{pick-a-time date=date on-selected=(action (mut date)) nulls-date=(readonly nullsDate) disabled=timeDisabled placeholder=timePlaceholder}}

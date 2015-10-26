@@ -1,0 +1,6 @@
+/* Bootstrap 3 Fix */
+.picker__input[readonly],
+.picker__input:hover {
+  background: #fff;
+  cursor: text;
+}
