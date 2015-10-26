@@ -3,7 +3,7 @@
 
 module.exports = {
   name: 'ember-cli-pickadate',
-  isDevelopingAddon: function() { return true; },
+  isDevelopingAddon: function() { return false; },
   included: function(app) {
     var options = app.options[this.name] || {};
 
