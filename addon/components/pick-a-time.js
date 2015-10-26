@@ -43,10 +43,13 @@ export default Component.extend({
     const options = this.attrs.options || {};
     const format = options.format || DEFAULT_TIME_FORMAT;
     const picker = this.get('picker');
-    picker.set('select', date, {
-      format: format,
-      muted: true
-    });
+
+    if (!picker.get('open')) {
+      picker.set('select', date, {
+        format: format,
+        muted: true
+      });
+    }
   },
 
   toggleInputDisabled: function() {
