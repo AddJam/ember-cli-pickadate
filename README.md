@@ -7,6 +7,8 @@ Components wrapping the date and time pickers of the [pickadate](http://amsul.ca
 
 ## Installation
 
+**Note** If you are using a version of Ember lower than 2.0, use version 0.3.2. You can view the README for 0.3.2 [here](https://github.com/AddJam/ember-cli-pickadate/tree/58ae2d75e7fb8d3b96d9ba4a2882ff7af0772408).
+
 ember-cli >= 0.2.5
 
 `ember install ember-cli-pickadate`
