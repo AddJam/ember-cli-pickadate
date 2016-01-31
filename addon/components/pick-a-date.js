@@ -79,8 +79,8 @@ export default Component.extend({
 
     const newDate = new Date(date);
     newDate.setYear(dateItem.year);
-    newDate.setMonth(dateItem.month);
     newDate.setDate(dateItem.date);
+    newDate.setMonth(dateItem.month);
     if (this.attrs['on-selected']) {
       if (newDate && !isNaN(newDate.getTime())) { //Number.isNaN PhantomJs does not like this yet
         this.attrs['on-selected'](newDate);
