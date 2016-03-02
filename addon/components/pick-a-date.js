@@ -28,6 +28,11 @@ export default Component.extend({
     options.onSet = () => {
       this.onSelected();
     };
+
+    for (var option in options.value) {
+      options[option] = options.value[option];
+    }
+
     this.$().pickadate(options);
     this.set('picker', this.$().pickadate('picker'));
   },
