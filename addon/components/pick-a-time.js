@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
-const { isNone, Component } = Ember;
+const {
+  Component,
+  isEmpty,
+  isNone,
+  observer
+ } = Ember;
 const DEFAULT_TIME_FORMAT = 'hh-i';
 
 /**
@@ -21,6 +26,7 @@ export default Component.extend({
   type: 'text',
   placeholder: "Select a time",
   picker: null,
+  date: null,
   classNames: ['ember-pick-a-time'],
 
   didInsertElement() {
@@ -61,6 +67,25 @@ export default Component.extend({
       this.$().prop('disabled', false);
     }
   },
+
+  dateChanged: observer('date', function() {
+    this.updateInputText()
+  }),
+
+  optionsChanged: observer('options', function() {
+    let options = this.attrs.options;
+
+    if (isEmpty(options)) {
+      // TODO: unset options which were removed
+      return;
+    }
+
+    for (var key in options) {
+      if (options.hasOwnProperty(key)) {
+        this.get('picker').set(key, options[key]);
+      }
+    }
+  }),
 
   onClose(){
     // Prevent pickadate from re-opening on focus

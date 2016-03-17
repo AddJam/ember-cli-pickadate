@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
-const { Component } = Ember;
+const {
+  Component,
+  isEmpty,
+  observer
+} = Ember;
 const DEFAULT_DATE_FORMAT = 'd mmmm, yyyy';
 
 /**
@@ -65,6 +69,25 @@ export default Component.extend({
       this.$().prop('disabled', false);
     }
   },
+
+  dateChanged: observer('date', function() {
+    this.updateInputText();
+  }),
+
+  optionsChanged: observer('options', function() {
+    let options = this.get('options');
+
+    if (isEmpty(options)) {
+      // TODO: unset options which were removed
+      return;
+    }
+
+    for (var key in options) {
+      if (options.hasOwnProperty(key)) {
+        this.get('picker').set(key, options[key]);
+      }
+    }
+  }),
 
   onClose() {
     // Prevent pickadate from re-opening on focus
