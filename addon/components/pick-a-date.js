@@ -29,8 +29,8 @@ export default Component.extend({
   didInsertElement() {
     const options = this.attrs.options || {};
     options.onClose = options.onClose || this.onClose;
-    options.onSet = () => {
-      this.onSelected();
+    options.onSet = (ev) => {
+      this.onSelected(ev);
     };
 
     for (var option in options.value) {
@@ -94,13 +94,13 @@ export default Component.extend({
     Ember.$(document.activeElement).blur();
   },
 
-  onSelected(){
+  onSelected(ev){
     const date = this.get('date') || new Date();
     const picker = this.get('picker');
     const dateItem = picker.get('select');
     if (!dateItem) {
       if (this.attrs['on-selected']) {
-        this.attrs['on-selected'](null);
+        this.attrs['on-selected'](null, ev);
       }
       return;
     }
@@ -111,9 +111,9 @@ export default Component.extend({
     newDate.setMonth(dateItem.month);
     if (this.attrs['on-selected']) {
       if (newDate && !isNaN(newDate.getTime())) { //Number.isNaN PhantomJs does not like this yet
-        this.attrs['on-selected'](newDate);
+        this.attrs['on-selected'](newDate, ev);
       } else {
-        this.attrs['on-selected'](null);
+        this.attrs['on-selected'](null, ev);
       }
     }
   },
