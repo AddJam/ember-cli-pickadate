@@ -106,9 +106,10 @@ export default Component.extend({
     }
 
     const newDate = new Date(date);
+    newDate.setDate(1); // Prevent month wrapping bug (e.g. 31 April = 1 May)
     newDate.setYear(dateItem.year);
-    newDate.setDate(dateItem.date);
     newDate.setMonth(dateItem.month);
+    newDate.setDate(dateItem.date);
     if (this.attrs['on-selected']) {
       if (newDate && !isNaN(newDate.getTime())) { //Number.isNaN PhantomJs does not like this yet
         this.attrs['on-selected'](newDate, ev);
