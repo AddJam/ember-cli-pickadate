@@ -5,7 +5,7 @@
 Placeholder {{input value=datePlaceholder}}<br>
 <br>
 <h3>Empty Date</h3>
-{{pick-a-date date=date on-selected=(action (mut date)) disabled=dateDisabled placeholder=datePlaceholder}}
+{{pick-a-date date=(readonly date) on-selected=(action (mut date)) disabled=dateDisabled placeholder=datePlaceholder}}
 <h3>Todays Date</h3>
 {{pick-a-date date=date2 on-selected=(action (mut date2)) disabled=dateDisabled placeholder=datePlaceholder}}
 

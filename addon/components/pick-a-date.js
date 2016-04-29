@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Picker from './picker';
 
 const {
   Component,
@@ -16,18 +17,13 @@ const DEFAULT_DATE_FORMAT = 'd mmmm, yyyy';
  * @param date - (Date) the date to display
  * @param on-selected - (function) called when a date is selected and passed the new date as the first argument.
  */
-export default Component.extend({
-  tagName: 'input',
-  attributeBindings: ['placeholder', 'disabled', 'type'],
-  disabled: null,
-  type: 'text',
+export default Picker.extend({
   placeholder: "Select a date",
-  picker: null,
-  date: null,
   classNames: ['ember-pick-a-date'],
 
   didInsertElement() {
-    const options = this.attrs.options || {};
+    const defaults = this.getOptions().date;
+    const options = Ember.assign(defaults, this.attrs.options);
     options.onClose = options.onClose || this.onClose;
     options.onSet = (ev) => {
       this.onSelected(ev);
@@ -39,11 +35,6 @@ export default Component.extend({
 
     this.$().pickadate(options);
     this.set('picker', this.$().pickadate('picker'));
-  },
-
-  didRender() {
-    this.updateInputText();
-    this.toggleInputDisabled();
   },
 
   updateInputText() {
@@ -58,40 +49,6 @@ export default Component.extend({
         muted: true
       });
     }
-  },
-
-  toggleInputDisabled: function() {
-    if(this.get('disabled')) {
-      this.get('picker').stop();
-      this.$().prop('disabled', true); // pick-a-date is doing funny things with the disabled attribute
-    } else {
-      this.get('picker').start();
-      this.$().prop('disabled', false);
-    }
-  },
-
-  dateChanged: observer('date', function() {
-    this.updateInputText();
-  }),
-
-  optionsChanged: observer('options', function() {
-    let options = this.get('options');
-
-    if (isEmpty(options)) {
-      // TODO: unset options which were removed
-      return;
-    }
-
-    for (var key in options) {
-      if (options.hasOwnProperty(key)) {
-        this.get('picker').set(key, options[key]);
-      }
-    }
-  }),
-
-  onClose() {
-    // Prevent pickadate from re-opening on focus
-    Ember.$(document.activeElement).blur();
   },
 
   onSelected(ev){
@@ -117,13 +74,5 @@ export default Component.extend({
         this.attrs['on-selected'](null, ev);
       }
     }
-  },
-
-  willDestroyElement() {
-    const picker = this.get('picker');
-    if (picker && picker.get('start')) {
-      picker.stop();
-    }
   }
-
 });

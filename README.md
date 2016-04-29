@@ -7,15 +7,17 @@ Components wrapping the date and time pickers of the [pickadate](http://amsul.ca
 
 ## Installation
 
-**Note** If you are using a version of Ember lower than 2.0, use version 0.3.2. You can view the README for 0.3.2 [here](https://github.com/AddJam/ember-cli-pickadate/tree/58ae2d75e7fb8d3b96d9ba4a2882ff7af0772408).
-
-ember-cli >= 0.2.5
-
 `ember install ember-cli-pickadate`
 
-ember-cli < 0.2.5
+**Note**
+If you are using an older version of ember, you might need an older version of the addon.
 
-`ember install:addon ember-cli-pickadate`
+Ember version | Addon version | Addon README
+--------------|---------------|--------------
+>= 2.5        | latest        | You're on it
+>= 2.0, < 2.5 | 1.2.1         | [README](https://github.com/AddJam/ember-cli-pickadate/blob/fd230d73a1e0534321cdd433f26aade6dd52bd4c/README.md)
+< 2.0         | 0.3.2         | [README](https://github.com/AddJam/ember-cli-pickadate/tree/58ae2d75e7fb8d3b96d9ba4a2882ff7af0772408)
+If you are using a version of Ember lower than 2.0, use version 0.3.2. You can view the README for 0.3.2 .
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
@@ -66,20 +68,32 @@ All parameters are optional.
 
 You can pass the same date object to both pickers.
 
-### Build Options
-You can specify options to the add-on using the "ember-cli-pickadate" config property in your ember-cli-build.js (or in Brocfile.js if you are using an Ember CLI version older than 1.13):
+### Global default options
+You can set default options to be passed to pick-a-time and pick-a-date in `config/environment.js`.
+
+```
+ENV['ember-cli-pickadate'] = {
+  date: {},
+  time: {}
+}
+```
+
+The objects set for `date` and `time` will become defaults for all instances across your application. The `options` passed to each individual instance will be merged with the defaults specified here.
+
+### Changing Theme
+You can specify the theme as part of the build options to the add-on using the "ember-cli-pickadate" config property in your ember-cli-build.js (or in Brocfile.js if you are using an Ember CLI version older than 1.13):
 
 ```
 var app = new EmberApp({
-  "ember-cli-pickadate": { [options] }
+  "ember-cli-pickadate": {
+    theme: 'default'
+  }
 });
 ```
 
 Options:
 
 * `theme`: specify a theme to use (default: 'default')
-
-
 
 ## License
 

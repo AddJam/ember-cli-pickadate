@@ -16,7 +16,22 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      'default-src': ["'none'"],
+      'script-src':  ["'self'"],
+      'font-src':    ["'self'"],
+      'connect-src': ["'self'"],
+      'img-src':     ["'self'"],
+      'style-src':   ["'self'", "'unsafe-inline'"],
+      'media-src':   ["'self'"]
     }
+  };
+
+  ENV['ember-cli-pickadate'] = {
+    'date': {},
+    'time': {}
   };
 
   if (environment === 'development') {
