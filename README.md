@@ -17,7 +17,6 @@ Ember version | Addon version | Addon README
 >= 2.5        | latest        | You're on it
 >= 2.0, < 2.5 | 1.2.1         | [README](https://github.com/AddJam/ember-cli-pickadate/blob/fd230d73a1e0534321cdd433f26aade6dd52bd4c/README.md)
 < 2.0         | 0.3.2         | [README](https://github.com/AddJam/ember-cli-pickadate/tree/58ae2d75e7fb8d3b96d9ba4a2882ff7af0772408)
-If you are using a version of Ember lower than 2.0, use version 0.3.2. You can view the README for 0.3.2 .
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
 
