@@ -9,7 +9,8 @@ const {
 
 export default Component.extend({
   tagName: 'input',
-  attributeBindings: ['placeholder', 'disabled', 'type'],
+  attributeBindings: ['placeholder', 'disabled', 'type', 'name'],
+  name: null,
   disabled: null,
   type: 'text',
   date: null,
