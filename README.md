@@ -55,6 +55,7 @@ or the following syntax if you have angle bracket components.
 #### Parameters
  * disabled - (boolean) Disable the timepicker
  * placeholder - (string) The text to display in the input when nothing is selected
+ * name - sets input `name` attribute for use with [formats](http://amsul.ca/pickadate.js/date/#formats)
  * options - (object) Options available via the pick-a-date API
  * date - (Date) The date to display (of which the time part will be displayed to the user)
  * on-selected - (function) Called when a date is selected and passed the new date as the first argument.
