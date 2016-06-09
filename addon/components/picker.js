@@ -1,7 +1,11 @@
 import Ember from 'ember';
 import config from 'ember-get-config';
 
-const { Component, observer } = Ember;
+const {
+  Component,
+  observer,
+  isEmpty
+} = Ember;
 
 export default Component.extend({
   tagName: 'input',
