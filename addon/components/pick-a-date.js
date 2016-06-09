@@ -23,7 +23,10 @@ export default Picker.extend({
 
   didInsertElement() {
     const defaults = this.getOptions().date;
-    const options = Ember.assign(defaults, this.attrs.options);
+    const options = {
+      ...defaults,
+      ...this.attrs.options
+    };
     options.onClose = options.onClose || this.onClose;
     options.onSet = (ev) => {
       this.onSelected(ev);

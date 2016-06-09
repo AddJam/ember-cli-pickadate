@@ -7,5 +7,10 @@ export default Ember.Controller.extend({
   datePlaceholder: 'Pick a date',
   timeDisabled: false,
   timePlaceholder: 'Pick a time',
-  nullsDate: false
+  nullsDate: false,
+  timeOptions: Ember.computed(function () {
+    return {
+      closeOnSelect: false
+    };
+  })
 });

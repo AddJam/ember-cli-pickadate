@@ -14,4 +14,4 @@ Placeholder {{input value=datePlaceholder}}<br>
 Placeholder {{input value=timePlaceholder}}<br>
 {{input type="checkbox" checked=nullsDate}} Clearing time nulls out date?<br>
 <br>
-{{pick-a-time date=date on-selected=(action (mut date)) nulls-date=(readonly nullsDate) disabled=timeDisabled placeholder=timePlaceholder}}
+{{pick-a-time date=date on-selected=(action (mut date)) nulls-date=(readonly nullsDate) disabled=timeDisabled placeholder=timePlaceholder options=timeOptions}}

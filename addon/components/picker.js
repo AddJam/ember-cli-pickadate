@@ -27,7 +27,10 @@ export default Component.extend({
       'time': {}
     };
     const appOptions = config['ember-cli-pickadate'];
-    return Ember.assign(defaults, appOptions);
+    return {
+      ...defaults,
+      ...appOptions
+    };
   },
 
   toggleInputDisabled: function() {
