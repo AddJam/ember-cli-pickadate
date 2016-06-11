@@ -14,8 +14,7 @@ If you are using an older version of ember, you might need an older version of t
 
 Ember version | Addon version | Addon README
 --------------|---------------|--------------
->= 2.5        | latest        | You're on it
->= 2.0, < 2.5 | 1.2.1         | [README](https://github.com/AddJam/ember-cli-pickadate/blob/fd230d73a1e0534321cdd433f26aade6dd52bd4c/README.md)
+>= 2.0        | latest        | You're on it
 < 2.0         | 0.3.2         | [README](https://github.com/AddJam/ember-cli-pickadate/tree/58ae2d75e7fb8d3b96d9ba4a2882ff7af0772408)
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
